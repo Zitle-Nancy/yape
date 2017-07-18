@@ -19,6 +19,10 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(morgan(format));
 
+// rutas
+// app.use('/',express.static(__dirname,'node_modules'));
+// app.use('/static',express.static(__dirname,'assets'));
+
 let router = express.Router();
 
 router.get('/', (req, res) => {
