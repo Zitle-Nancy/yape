@@ -6,6 +6,15 @@ body{
 }
 
 .iconos{
-	width: 100px;
 	height: 100px;
 }
+.blanco{
+	background-color: white;
+}
+.carousel .indicators .indicator-item{
+	background-color: red;
+}
+.carousel-posicion{
+	margin-top: 400px;
+}
+
