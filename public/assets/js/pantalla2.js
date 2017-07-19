@@ -54,19 +54,27 @@
 	}
 	// fin de validaciones // 
 
-	// api //
+	
 	var registrarNumero = function(){
+		location.href = "/view/pantalla3.html";
+		var numero = $('#icon_telephone').val();
+		localStorage.setItem('numeroCel', numero);
+
+		// api //
 		$.post('http://localhost:3000/api/registerNumber',
 		{
 			"phone": inputTelefono.val(),
 			// por defecto te devuelve un boolean
 			"terms": checkTerminos.is(':checked')
 		}).then(function(response){
-			console.log(response.data.code);
+			var codigo = response.data.code;
+			localStorage.setItem('codigoGenerado',codigo);
+			console.log(codigo);
 		}).catch(function(error){
 			console.log(error)
 		});
+		// fin de api //
 	}
-	// fin de api //
+	
 	$(document).ready(cargarPagina);
 })();
