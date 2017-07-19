@@ -16,23 +16,26 @@ const format = morganjson({
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// tenemos acceso a todo lo que esta en public
 app.use(express.static('public'));
 app.use(morgan(format));
 
-// rutas
-// app.use('/',express.static(__dirname,'node_modules'));
-// app.use('/static',express.static(__dirname,'assets'));
+// ruta de la computadora
+// var ruta = __dirname + '/node_modules';
+// console.log(ruta);
+// ased ruta del servidor
+
+app.use('/static',express.static(__dirname + '/node_modules' ));
+app.use('/static',express.static(__dirname + '/public'));
 
 let router = express.Router();
 
 router.get('/', (req, res) => {
   res.json({ name: 'yape-api',version: "0.0.1"});
 });
-
+// se esta creando una ruta donde va estar el api
 app.use('/api',apiUsers(router,db));
-
 const port = process.env.PORT || 3000;
-
 app.listen(port, () => {
   console.log('Server running on port '+port+'!');
 });

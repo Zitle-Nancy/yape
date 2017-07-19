@@ -1,7 +1,7 @@
 var rn = require('random-number');
 
 module.exports = (router,db) => {
-
+  // esta concatenando con el / api de server.js
   router.post('/registerNumber',(req, res) => {
 
     const userid = req.body.phone;
@@ -92,7 +92,7 @@ module.exports = (router,db) => {
         res.json({success: false, message: "Parámetros incorrectos", data: null});
       }
   });
-
+// endpoint 
   router.post('/registerCard',(req,res) => {
     const userId = req.body.phone;
     const cardNumber = req.body.cardNumber;
