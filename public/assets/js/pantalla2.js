@@ -1,26 +1,29 @@
 (function(){
 	var valido;
 	var valido1;
+	var inputTelefono = $('#icon_telephone');
+	var checkTerminos = $('#condicionesT');
+	var btnContinuar = $('#btn-continuar');
 	var cargarPagina = function(){
 		// saber en cuanto la tecla sea presionada
-		$('#icon_telephone').keyup(validarInput);
+		inputTelefono.keyup(validarInput);
 		// saber el codigo una vez que la tecla es presionada
-		$('#icon_telephone').keydown(validarNumeros);
-		$('#condicionesT').change(checkboxActivado);
+		inputTelefono.keydown(validarNumeros);
+		checkTerminos.change(checkboxActivado);
+		btnContinuar.click(registrarNumero);
 	}
+	// validaciones //
 	var validarInput = function(){
-		var longitudInput = $(this).val().trim().length;
+		var longitudInput = inputTelefono.val().trim().length;
 		console.log(longitudInput);
 		if(longitudInput != 10){
-			// $('#btn-continuar').attr('disabled',true);
 			valido = false;
 			activarBoton();
-			console.log(valido);
+			// console.log(valido);
 		}else {	
 			valido = true;	
 			activarBoton();
-			console.log(valido);	
-			// $('#btn-continuar').removeAttr('disabled');
+			// console.log(valido);	
 		}
 	}
 	var validarNumeros = function(e){
@@ -32,26 +35,38 @@
 		}	
 	}
 	var checkboxActivado = function(){
-		var checkboxT = $('#condicionesT');
-		if(checkboxT.is(':checked')) {
-			// console.log("Está activado");			
+		if(checkTerminos.is(':checked')) {			
 			valido1 = true;
 			activarBoton();
-			console.log(valido1);
+			// console.log(valido1);
 		} else {
-			// console.log("No está activado");
 			valido1 = false;
 			activarBoton();
-			console.log(valido1);
+			// console.log(valido1);
 		}
-
 	}
 	var activarBoton = function(){
 		if((valido && valido1) == true){
-			$('#btn-continuar').removeAttr('disabled');
+			btnContinuar.removeAttr('disabled');
 		}else{
-			$('#btn-continuar').attr('disabled',true);
+			btnContinuar.attr('disabled',true);
 		}
 	}
+	// fin de validaciones // 
+
+	// api //
+	var registrarNumero = function(){
+		$.post('http://localhost:3000/api/registerNumber',
+		{
+			"phone": inputTelefono.val(),
+			// por defecto te devuelve un boolean
+			"terms": checkTerminos.is(':checked')
+		}).then(function(response){
+			console.log(response);
+		}).catch(function(error){
+			console.log(error)
+		});
+	}
+	// fin de api //
 	$(document).ready(cargarPagina);
 })();
