@@ -15,7 +15,7 @@
 	// validaciones //
 	var validarInput = function(){
 		var longitudInput = inputTelefono.val().trim().length;
-		console.log(longitudInput);
+		// console.log(longitudInput);
 		if(longitudInput != 10){
 			valido = false;
 			activarBoton();
@@ -62,7 +62,7 @@
 			// por defecto te devuelve un boolean
 			"terms": checkTerminos.is(':checked')
 		}).then(function(response){
-			console.log(response);
+			console.log(response.data.code);
 		}).catch(function(error){
 			console.log(error)
 		});
