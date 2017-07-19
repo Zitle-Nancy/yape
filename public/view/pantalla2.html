@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yape</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/materialize-css/dist/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/pantalla2.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row center">
+			<img src="../img/icons/phone.png">
+			<h4 class="center">
+				Para comenzar validaremos tu numero
+			</h4>
+			<h6>Recibiras un SMS con un numero de configuracion</h6>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<form>
+					<div class="input-field col s4">
+						<i class="material-icons prefix">
+							stay_primary_portrait
+						</i>
+						<label>+52</label>
+					</div> 
+					<div class=" input-field col s7 offset-1">
+						<input id="icon_telephone" type="tel" class="validate" maxlength="10">
+						<label for="icon_telephone">Telephone</label>
+					</div>
+					<div class="row">
+					<p class="col s12 center">
+							<input type="checkbox" class="filled-in" id="condicionesT"/>
+							<label for="condicionesT">Acepto los<a href="#">Terminos y condiciones</a></label>
+						</p>
+					</div>
+				</form>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="offset-s1 col s10 contenedor-btn">
+				<button id='btn-continuar' class="waves-effect waves-light btn btn-registro" disabled>Continuar</button>
+			</div>
+		</div>
+	</div>
+	<script src='/static/jquery/dist/jquery.min.js'></script>
+	<script src='/static/materialize-css/dist/js/materialize.min.js'></script>
+	<script src='../assets/js/pantalla2.js'></script>
+</body>
+</html>
