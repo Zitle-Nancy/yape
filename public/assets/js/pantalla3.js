@@ -16,7 +16,7 @@
 		arreglo.push(inputCodigo.val());
 		var serie = arreglo.join('');
 		if (serie == obtenerCodigo){
-			location.href = "/view/pantalla2.html";
+			location.href = "/view/pantalla3.html";
 			// console.log('ok');
 		}//else{
 		// 	sweetAlert("Oops...", "Codigo incorrecto", "error");
