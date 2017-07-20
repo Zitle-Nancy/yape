@@ -1,0 +1,16 @@
+body{
+	margin:0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-color:#FBD43B;
+}
+.contenedor{
+	/*display: flex;
+	justify-content:center;
+	align-items:center;*/
+	margin-top: 150px;
+}
+.texto-morado{
+	color: #38052a;
+}

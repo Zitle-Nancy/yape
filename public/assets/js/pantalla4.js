@@ -56,7 +56,7 @@
 				// obtenemos codigo
 				mensaje = response.message;
 				swal("Good job!",mensaje, "success")
-				// location.href = "/view/pantalla3.html";
+				location.href = "/view/pantalla5.html";
 			}else{
 				sweetAlert("Oops...",mensaje, "error");
 			}

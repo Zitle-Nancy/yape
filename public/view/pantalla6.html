@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yape</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/materialize-css/dist/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/pantalla2.css">
+</head>
+<body>
+<h1>pantalla 6</h1>
+	<div class="container">
+		<div class="row center">
+			<figure>
+				<img src="../img/icons/lockone.png" alt="imagen usuario " class="altura">
+				<figcaption>
+					<h4 class="texto-en-negritas">Crea tu usuario Yape</h4>
+				</figcaption>
+			</figure>
+			<h6 class="center">
+				Ingresa un nombre,email y clave de usuario
+			</h6>
+		</div>
+		<form>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="first_name" type="text" class="validate datos" maxlength="15" required>
+					<label for="first_name">Nombre</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="email" type="email" class="validate datos" required>
+					<label for="email">Email</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="password" type="password" class="validate datos" required>
+					<label for="password">Password</label>
+				</div>
+				<p class="texto-gris center">Cuida esta clave como oro, es tu acceso a yape</p>
+			</div>
+			<button type='submit' id='btn-cuenta' class="waves-effect waves-light btn btn-registro" disabled>Continuar</button>
+
+		</form>
+	</div>
+	<script src='/static/jquery/dist/jquery.min.js'></script>
+	<script src='/static/materialize-css/dist/js/materialize.min.js'></script>
+	<script src='../assets/js/sweetalert.min.js'></script>
+	<script src='../assets/js/validacionNumeros.js'></script>
+	<script src='../assets/js/pantalla4.js'></script>
+</body>
+</html>
