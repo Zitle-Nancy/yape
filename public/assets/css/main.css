@@ -10,6 +10,12 @@ body{
 .blanco{
 	background-color: white;
 }
+.texto-en-negritas{
+	font-weight: bold;
+}
+.texto-gris{
+	color:  #8f8f8f;
+}
 .carousel .indicators .indicator-item{
 	background-color: red;
 }
@@ -27,6 +33,16 @@ body{
 }
 .contenedor-btn{
 	height: 80px;
+}
+.inline{
+	display: inline-block;
+}
+.imagen-size{
+	width: 18px;
+	height: 18px;
+}
+.margin-top-negativo{
+	margin-top: -60px;
 }
 
 
