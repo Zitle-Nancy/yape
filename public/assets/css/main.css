@@ -16,6 +16,12 @@ body{
 .texto-gris{
 	color:  #8f8f8f;
 }
+.tamano-doce{
+	font-size: 12px;
+}
+.tamano-cincuenta-seis{
+	font-size: 56px;
+}
 .carousel .indicators .indicator-item{
 	background-color: red;
 }
@@ -47,4 +53,23 @@ body{
 .altura{
 	height: 160px;
 }
-
+.texto-azul{
+	color: #00c3a3;
+}
+.top{
+	margin-top: 15px;
+}
+.texto-morado{
+ color: #451e36;
+}
+.derecha{
+	text-align: right;
+}
+.tamano-pequeno{
+	width: 30px;
+	height: 30px;
+}
+.tamano-sesenta{
+	width: 60px;
+	height: 60px;
+}

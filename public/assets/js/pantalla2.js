@@ -64,7 +64,7 @@
 				// console.log(codigo);
 				location.href = "/view/pantalla3.html";
 			}else{
-				sweetAlert("Oops...", "Usuario ya registrado", "error");
+				sweetAlert("Oops...", "Numero telefonico ya registrado", "error");
 			}
 		}).catch(function(error){
 			console.log(error)

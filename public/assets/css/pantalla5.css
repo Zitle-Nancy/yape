@@ -1,0 +1,11 @@
+@import url('main.css');
+body{
+	background-color: #FBD43B;
+}
+.contenedor{
+	/*display: flex;
+	justify-content:center;
+	align-items:center;*/
+	margin-top: 150px;
+}
+
