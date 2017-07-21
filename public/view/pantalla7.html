@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yape</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/materialize-css/dist/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/pantalla2.css">
+</head>
+<body>
+	<div class="container">
+	<div class="row">
+		<div class="col s6">
+			<i class="col s3 material-icons prefix texto-morado tamano-cincuenta-seis">
+				navigate_before
+			</i>
+			<p class="col s3 inline texto-morado">Volver</p>
+		</div>
+		<div class="col s6 derecha">
+			<img src="../img/icons/question.png" alt="imagen" class="tamano-pequeno top">
+		</div>
+	</div>
+		<div class="row center">
+			<figure class="top ">
+				<img src="../img/icons/bcp-logo.png" alt="imagen" class="altura">
+				<figcaption>
+					<h4 class="texto-en-negritas">Registra tu tarjeta débito BCP</h4>
+				</figcaption>
+			</figure>
+			<h6 class="center texto-gris inline">Tarjeta</h6>
+			<p class="texto-en-negritas inline">
+				****<p class="inline">3456</p>
+			</p>
+		</div>
+		<div class="row">
+			<div class="col s12">
+			  <div class="row">
+			    <div class="input-field col s12">
+			      <i class="material-icons prefix">lock_outline</i>
+			      <input type="text" id="autocomplete-input" maxlength="4">
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<div class="row">
+			<button type='submit' id='btn-siguiente' class="waves-effect waves-light btn btn-registro" disabled>Continuar</button>
+		</div>
+	</div>
+	<script src='/static/jquery/dist/jquery.min.js'></script>
+	<script src='/static/materialize-css/dist/js/materialize.min.js'></script>
+	<script src='../assets/js/sweetalert.min.js'></script>
+	<!-- <script src='../assets/js/validacionNumeros.js'></script> -->
+	<script src='../assets/js/pantalla6.js'></script>
+</body>
+</html>

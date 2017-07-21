@@ -19,6 +19,9 @@ body{
 .tamano-doce{
 	font-size: 12px;
 }
+.tamano-cincuenta-seis{
+	font-size: 56px;
+}
 .carousel .indicators .indicator-item{
 	background-color: red;
 }
@@ -53,4 +56,16 @@ body{
 .texto-azul{
 	color: #00c3a3;
 }
-
+.top{
+	margin-top: 15px;
+}
+.texto-morado{
+ color: #451e36;
+}
+.derecha{
+	text-align: right;
+}
+.tamano-pequeno{
+	width: 30px;
+	height: 30px;
+}
