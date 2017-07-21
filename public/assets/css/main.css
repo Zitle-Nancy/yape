@@ -16,6 +16,9 @@ body{
 .texto-gris{
 	color:  #8f8f8f;
 }
+.tamano-doce{
+	font-size: 12px;
+}
 .carousel .indicators .indicator-item{
 	background-color: red;
 }
@@ -46,5 +49,8 @@ body{
 }
 .altura{
 	height: 160px;
+}
+.texto-azul{
+	color: #00c3a3;
 }
 
