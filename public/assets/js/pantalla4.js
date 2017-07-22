@@ -53,17 +53,28 @@
 		}).then(function(response){
 			var mensaje;
 			if(response.success){
-				// obtenemos codigo
+				// obtenemos el mensaje
 				mensaje = response.message;
-				swal("Good job!",mensaje, "success")
-				location.href = "/view/pantalla5.html";
+				swal({
+				  title: "Good job!",
+				  text: mensaje,
+				  type: "success",
+				  // showCancelButton: true,
+				  closeOnConfirm: false,
+				  showLoaderOnConfirm: true,
+				},
+				function(){
+					location.href = "/view/pantalla5.html";
+				});
 			}else{
 				sweetAlert("Oops...",mensaje, "error");
 			}
+			
 		}).catch(function(error){
-			console.log(error)
+			console.log(error);
 		});
 		// fin de api //
+		
 	};
 	$(document).ready(cargarPagina);
 })();
