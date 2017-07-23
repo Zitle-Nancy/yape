@@ -21,11 +21,15 @@
 			if (serie == obtenerCodigo){
 				location.href = "/view/pantalla4.html";
 				// console.log('ok');
+				inputCodigo.val('');
 			}else{
 				sweetAlert("Oops...", "Codigo incorrecto", "error");
 				// console.log('no');
+				inputCodigo.val('');
 			}
 		}
+		// limpiar input
+		
 	}
 	$(document).ready(cargarPagina);
 })();

@@ -18,24 +18,22 @@
 		// console.log(longitudInput);
 		if(longitudInput != 10){
 			valido = false;
-			activarBoton();
 			// console.log(valido);
 		}else {	
 			valido = true;	
-			activarBoton();
 			// console.log(valido);	
 		}
+		activarBoton();
 	}
 	var checkboxActivado = function(){
 		if(checkTerminos.is(':checked')) {			
 			valido1 = true;
-			activarBoton();
 			// console.log(valido1);
 		} else {
 			valido1 = false;
-			activarBoton();
 			// console.log(valido1);
 		}
+		activarBoton();
 	}
 	var activarBoton = function(){
 		if((valido && valido1) == true){
@@ -70,6 +68,7 @@
 			console.log(error)
 		});
 		// fin de api //
+		inputTelefono.val('');
 	}
 	
 	$(document).ready(cargarPagina);

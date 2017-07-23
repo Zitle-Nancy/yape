@@ -19,12 +19,12 @@
 	};
 	var validarCorreo = function(){
 		var texto = email.val();
-		var patronCorreo = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
+		var patronCorreo = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		// console.log(patronCorreo);
 		if(patronCorreo.test(texto)){
-			// console.log('valido');
+			console.log('valido');
 		}else{
-			// console.log('no valido');
+			console.log('no valido');
 		}
 	};
 	var validarInputs = function(){
@@ -74,7 +74,10 @@
 			console.log(error);
 		});
 		// fin de api //
-		
+		// limpiar inputs 
+		inputNombre.val('');
+		email.val('');
+		password.val('');
 	};
 	$(document).ready(cargarPagina);
 })();
