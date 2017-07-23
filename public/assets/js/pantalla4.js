@@ -5,9 +5,10 @@
 	var datos = $('.datos');
 	var botonCuenta = $('#btn-cuenta');
 	var obtenerNumero = localStorage.getItem('numeroCel');
+	var valido;
 	var cargarPagina = function(){
 		inputNombre.keydown(validarLetras);
-		email.keydown(validarCorreo);
+		email.keydown(comprobarEmail);
 		datos.keyup(validarInputs);
 		botonCuenta.click(registrarUsuario);
 	};
@@ -17,15 +18,19 @@
 			e.preventDefault();
 		}
 	};
-	var validarCorreo = function(){
+	var comprobarEmail = function(){
 		var texto = email.val();
 		var patronCorreo = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		// console.log(patronCorreo);
 		if(patronCorreo.test(texto)){
-			console.log('valido');
+			valido = true;
+			console.log('valido' + valido);
 		}else{
-			console.log('no valido');
+			// sweetAlert("Oops...", "correo Invalido", "error");
+			valido = false;
+			console.log('no valido' + valido);
 		}
+		
 	};
 	var validarInputs = function(){
 		var valido = true;
@@ -43,37 +48,42 @@
 	};
 	var registrarUsuario = function(e){
 		e.preventDefault();
-		// api //
-		$.post('http://localhost:3000/api/createUser',
-		{
-			"phone": obtenerNumero,
-			"name": inputNombre.val(),
-			"email": email.val(),
-			"password": password.val()
-		}).then(function(response){
-			var mensaje;
-			if(response.success){
-				// obtenemos el mensaje
-				mensaje = response.message;
-				swal({
-				  title: "Good job!",
-				  text: mensaje,
-				  type: "success",
-				  // showCancelButton: true,
-				  closeOnConfirm: false,
-				  showLoaderOnConfirm: true,
-				},
-				function(){
-					location.href = "/view/pantalla5.html";
-				});
-			}else{
-				sweetAlert("Oops...",mensaje, "error");
-			}
-			
-		}).catch(function(error){
-			console.log(error);
-		});
-		// fin de api //
+		if(valido){
+			// api //
+			$.post('http://localhost:3000/api/createUser',
+			{
+				"phone": obtenerNumero,
+				"name": inputNombre.val(),
+				"email": email.val(),
+				"password": password.val()
+			}).then(function(response){
+				var mensaje;
+				if(response.success){
+					// obtenemos el mensaje
+					mensaje = response.message;
+					swal({
+					  title: "Good job!",
+					  text: mensaje,
+					  type: "success",
+					  // showCancelButton: true,
+					  closeOnConfirm: false,
+					  showLoaderOnConfirm: true,
+					},
+					function(){
+						location.href = "/view/pantalla5.html";
+					});
+				}else{
+					sweetAlert("Oops...",mensaje, "error");
+				}
+				
+			}).catch(function(error){
+				console.log(error);
+			});
+			// fin de api //
+		}else{
+			sweetAlert("Oops...", "Varifica tu correo", "error");
+		}
+		
 		// limpiar inputs 
 		inputNombre.val('');
 		email.val('');
