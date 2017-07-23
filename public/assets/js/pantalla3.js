@@ -10,14 +10,14 @@
 		swal("Bienvenido", "Tu codigo es: " + obtenerCodigo, "success")
 		inputCodigo.keyup(validarCodigo);
 		inputCodigo.keydown(validarNumeros);
-	}
+	};
 	var validarCodigo = function(){
 		var arreglo = [];
 		arreglo.push(inputCodigo.val());
 		var serie = arreglo.join('');
 		var longitud = inputCodigo.val().trim().length;
 		console.log(longitud);
-		if(longitud == 6){
+		if(obtenerCodigo.length == longitud){
 			if (serie == obtenerCodigo){
 				location.href = "/view/pantalla4.html";
 				// console.log('ok');
@@ -30,6 +30,6 @@
 		}
 		// limpiar input
 		
-	}
+	};
 	$(document).ready(cargarPagina);
 })();

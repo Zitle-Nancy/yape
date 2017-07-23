@@ -24,11 +24,10 @@
 		// console.log(patronCorreo);
 		if(patronCorreo.test(texto)){
 			valido = true;
-			console.log('valido' + valido);
+			// console.log('valido ' + valido);
 		}else{
-			// sweetAlert("Oops...", "correo Invalido", "error");
 			valido = false;
-			console.log('no valido' + valido);
+			// console.log('no valido ' + valido);
 		}
 		
 	};
