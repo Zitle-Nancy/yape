@@ -69,6 +69,10 @@
 		localStorage.setItem('mesSeleccionado', mesDato);
 		var anioDato = valorAnio;
 		localStorage.setItem('anioSeleccionado', anioDato);
+		// almacenar solo los cuatro digitos de la tarjeta
+		var ultimosDigitos = numeroTarjeta.substr(numeroTarjeta.length - 4);
+		localStorage.setItem('cuatroDigitos', ultimosDigitos);
+		// fin de los digitos de la tarjeta
 		// fin de localstorage
 		if((valido1) && (valido2) && (valido3)){
 			botonSiguiente.removeAttr('disabled');	

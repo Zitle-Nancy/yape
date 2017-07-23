@@ -1,17 +1,35 @@
 (function(){
 	var regresar = $('#icon-regresar');
 	var botonUltimo = $('#btn-pantalla-ocho');
+	var inputContrasena = $('#autocomplete-input');
+	var valido;
 	var cargarPagina = function(){
 		var obtenerNumero = localStorage.getItem('numeroCel');
-		console.log(obtenerNumero);
 		var obtenerNumeroTarjeta = localStorage.getItem('numeroCard');
-		console.log(obtenerNumeroTarjeta);
 		var obtenerMes = localStorage.getItem('mesSeleccionado');
-		console.log(obtenerMes);
 		var obtenerAnio = localStorage.getItem('anioSeleccionado');
-		console.log(obtenerAnio);
+		var obtenerUltimosDigitos = localStorage.getItem('cuatroDigitos');
+		$('#digitos').text(obtenerUltimosDigitos);
 		regresar.click(redireccionar);
 		botonUltimo.click(pantallaOcho);
+		inputContrasena.keydown(validarNumeros);
+		inputContrasena.keyup(validarInput);
+	}
+	var validarInput = function(){
+		var longitudInput = inputContrasena.val().trim().length;
+		if(longitudInput != 6){
+			valido = false;
+		}else {	
+			valido = true;	
+		}
+		activarBoton();
+	}
+	var activarBoton = function(){
+		if(valido){
+			botonUltimo.removeAttr('disabled');
+		}else{
+			botonUltimo.attr('disabled',true);
+		}
 	}
 	var redireccionar = function(){
 		location.href = '/view/pantalla6.html'
