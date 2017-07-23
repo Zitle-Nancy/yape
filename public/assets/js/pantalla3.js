@@ -1,6 +1,7 @@
 (function() {
 	var inputCodigo = $('#autocomplete-input');
 	var obtenerCodigo;
+	var numero = 22;
 	var cargarPagina = function(){
 		var obtenerNumero = localStorage.getItem('numeroCel');
 		$('#numero').text(obtenerNumero);
@@ -31,5 +32,17 @@
 		// limpiar input
 		
 	};
+	var contador = function(){
+		myVar = setInterval(decrementar, 1000);
+	};
+	var decrementar = function(){
+		numero--;
+		if(numero == 0){
+			clearInterval(myVar);
+		}
+		$('#incremento').text(numero);
+		console.log(numero);
+	}
+	contador();
 	$(document).ready(cargarPagina);
 })();

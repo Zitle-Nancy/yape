@@ -3,7 +3,6 @@ var rn = require('random-number');
 module.exports = (router,db) => {
   // esta concatenando con el / api de server.js
   router.post('/registerNumber',(req, res) => {
-
     const userid = req.body.phone;
     const terms  = req.body.terms;
 

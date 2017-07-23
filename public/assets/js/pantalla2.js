@@ -34,18 +34,16 @@
 		} else {
 			valido1 = false;
 			$(this).attr('checked',false);
-			// $(this).removeAttr('checked');
-			// console.log(valido1);
 		}
 		activarBoton();
-	}
+	};
 	var activarBoton = function(){
 		if((valido && valido1) == true){
 			btnContinuar.removeAttr('disabled');
 		}else{
 			btnContinuar.attr('disabled',true);
 		}
-	}
+	};
 	// fin de validaciones // 
 	var registrarNumero = function(){
 		var numero = $('#icon_telephone').val();
@@ -87,7 +85,6 @@
 		// checkTerminos.removeAttr('checked');
 		checkTerminos.prop('checked' , false);
 
-	}
-	
+	};
 	$(document).ready(cargarPagina);
 })();
