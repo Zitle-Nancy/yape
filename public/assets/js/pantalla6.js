@@ -4,48 +4,54 @@
 	var selectMes = $('#mes');
 	console.log(selectMes);
 	var selectAnio = $('#anio');
-	var datos = $('.datos');
 	var valido1, valido2, valido3;
+	var valorMes;
+	console.log(valorMes);
+	var valorAnio;
 	var cargarPagina = function(){
 		$('select').material_select();
 		inputTarjeta.keydown(validarNumeros);
 		inputTarjeta.keyup(validarLongitud);
-		// datos.keyup(validarInputs);
 		selectMes.change(obtenerMes);
 		selectAnio.change(obtenerAnio);
 		botonSiguiente.click(validarTarjeta);
 	};
 	var validarLongitud = function(){
+		var tarjetaValida = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})$/;
+		// console.log(tarjetaValida);
 		var longitud = inputTarjeta.val().trim().length;
-
-		if(longitud !== 16){
-			valido1 = false;
-			console.log('diferente a 16 ' + valido1);
-		}else{
-			valido1 = true;
-			console.log('igual a 16 ' + valido1);
-			
+		var digitosTarjeta = inputTarjeta.val();
+		/* la longitud es para que no muestre la alerta por cada letra
+		 que le introduzca , y asi solo la muestre de acuerdo a su longitud*/
+		if(longitud == 16){
+			if(tarjetaValida.test(digitosTarjeta)){
+				// console.log('tarjeta valida');
+				valido1 = true;
+			}else{
+				// console.log('tarjeta no valida');
+				sweetAlert("Oops...", "Tarjeta no valida", "error");
+				inputTarjeta.val('');
+				valido1 = false;
+			}
 		}
+		/* si o si va a realizar la accion que hay en la funcion
+		 sin importar el resultado de los validos*/
 		activarBoton();
-	}
+	};
 	var obtenerMes = function(){
-		var valorMes = $('#mes option:selected').text();
+		valorMes = $('#mes option:selected').text();
 		console.log(valorMes);
 		var indiceMes = $(this).val();
 		if(indiceMes < 1 || indiceMes > 12){
 			valido2 = false;
-			console.log('error' + valido2);
 		}else{
 			valido2 = true;
-			console.log('ok' + valido2);
 		}
 		activarBoton();
 	};
 	var obtenerAnio = function(){
-		var valorAnio = $('#anio option:selected').text();
+		valorAnio = $('#anio option:selected').text();
 		var indiceAnio = $(this).val();
-		// console.log(indice);
-		// console.log(valorAnio);
 		if(indiceAnio < 1 || indiceAnio > 8){
 			valido3 = false;
 			console.log('error' + valido3);
@@ -56,6 +62,14 @@
 		activarBoton();
 	};
 	var activarBoton = function(){
+		// almacenaremos los datos que necesitamos en localstorage
+		var numeroTarjeta = inputTarjeta.val();
+		localStorage.setItem('numeroCard', numeroTarjeta);
+		var mesDato = valorMes;
+		localStorage.setItem('mesSeleccionado', mesDato);
+		var anioDato = valorAnio;
+		localStorage.setItem('anioSeleccionado', anioDato);
+		// fin de localstorage
 		if((valido1) && (valido2) && (valido3)){
 			botonSiguiente.removeAttr('disabled');	
 		}else{	
@@ -63,8 +77,8 @@
 		}
 	};
 	var validarTarjeta = function(){
-		location.href = '/view/pantalla7.html';
-		inputTarjeta.val('');
+			location.href = '/view/pantalla7.html';
+			inputTarjeta.val('');
 	};
 	$(document).ready(cargarPagina);
 })();
