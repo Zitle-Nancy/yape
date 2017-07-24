@@ -18,32 +18,32 @@
 		// console.log(longitudInput);
 		if(longitudInput != 10){
 			valido = false;
-			activarBoton();
 			// console.log(valido);
 		}else {	
 			valido = true;	
-			activarBoton();
 			// console.log(valido);	
 		}
+		activarBoton();
 	}
 	var checkboxActivado = function(){
-		if(checkTerminos.is(':checked')) {			
+		if(checkTerminos.is(':checked')) {	
+			$(this).attr('checked',true);
+			console.log(this);		
 			valido1 = true;
-			activarBoton();
 			// console.log(valido1);
 		} else {
 			valido1 = false;
-			activarBoton();
-			// console.log(valido1);
+			$(this).attr('checked',false);
 		}
-	}
+		activarBoton();
+	};
 	var activarBoton = function(){
 		if((valido && valido1) == true){
 			btnContinuar.removeAttr('disabled');
 		}else{
 			btnContinuar.attr('disabled',true);
 		}
-	}
+	};
 	// fin de validaciones // 
 	var registrarNumero = function(){
 		var numero = $('#icon_telephone').val();
@@ -56,6 +56,7 @@
 			"terms": checkTerminos.is(':checked')
 		}).then(function(response){
 			// then para saber si es usuario valido
+			var mensaje = response.message;
 			if(response.success){
 				// obtenemos codigo
 				var codigo = response.data.code;
@@ -64,13 +65,26 @@
 				// console.log(codigo);
 				location.href = "/view/pantalla3.html";
 			}else{
-				sweetAlert("Oops...", "Numero telefonico ya registrado", "error");
+				swal({
+					  title: "Oops...",
+					  text: mensaje,
+					  type: "error",
+					  // showCancelButton: true,
+					  closeOnConfirm: false,
+					  showLoaderOnConfirm: true,
+					},
+					function(){
+						location.reload();
+					});
 			}
 		}).catch(function(error){
 			console.log(error)
 		});
 		// fin de api //
-	}
-	
+		inputTelefono.val('');
+		// checkTerminos.removeAttr('checked');
+		checkTerminos.prop('checked' , false);
+
+	};
 	$(document).ready(cargarPagina);
 })();
