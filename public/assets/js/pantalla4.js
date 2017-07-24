@@ -8,7 +8,8 @@
 	var valido;
 	var cargarPagina = function(){
 		inputNombre.keydown(validarLetras);
-		email.keydown(comprobarEmail);
+		email.keyup(comprobarEmail);
+		password.keyup(comprobarPassword);
 		datos.keyup(validarInputs);
 		botonCuenta.click(registrarUsuario);
 	};
@@ -31,12 +32,16 @@
 		}
 		
 	};
+	var comprobarPassword = function(){
+		// if ternario en donde condicion, ? (if) se hace si es verdadero 
+		// y despues de los puntos : (else) se hace si es falso
+		valido = $(this).val().length > 7 ? true : false;
+	};
 	var validarInputs = function(){
-		var valido = true;
 		datos.each(function(indice,elemento){
 			// console.log(indice,elemento);
 			var input = $(elemento).val().trim().length;
-			valido = valido &&(input > 0 && input <= 20);
+			valido = valido &&(input > 0 && input <= 50);
 			// console.log(valido);
 		});
 		if(valido){
@@ -80,7 +85,7 @@
 			});
 			// fin de api //
 		}else{
-			sweetAlert("Oops...", "Varifica tu correo", "error");
+			sweetAlert("Oops...", "Verifica tu correo", "error");
 		}
 		
 		// limpiar inputs 

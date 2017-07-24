@@ -1,7 +1,7 @@
 (function() {
 	var inputCodigo = $('#autocomplete-input');
 	var obtenerCodigo;
-	var numero = 7;
+	var numero = 21;
 	var cargarPagina = function(){
 		var obtenerNumero = localStorage.getItem('numeroCel');
 		$('#numero').text(obtenerNumero);
